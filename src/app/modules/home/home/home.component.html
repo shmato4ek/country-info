@@ -12,7 +12,8 @@
         <div class="table-container">
             <table class="table table-hover countries-table">
                 <tbody>
-                <tr *ngFor="let country of filteredCountries$ | async">
+                <tr *ngFor="let country of filteredCountries$ | async"
+                    (click)="navigateToCountryInfo(country.countryCode)">
                     <td>{{country.name}}</td>
                 </tr>
                 </tbody>

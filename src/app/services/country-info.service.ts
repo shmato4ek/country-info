@@ -42,4 +42,13 @@ export class CountryInfoService {
                 })
             )
     }
+
+    public getCountryHolidaysByYear(countryCode: string, year: number) {
+        return this.resourceService.getFullRequest<CountryHolidayInfo[]>(`PublicHolidays/${year}/${countryCode}`)
+            .pipe(
+                map(resp => {
+                    return resp.body as CountryHolidayInfo[];
+                })
+            )
+    }
 }

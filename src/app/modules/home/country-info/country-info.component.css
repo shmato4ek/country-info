@@ -1,0 +1,26 @@
+.country-info-page-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.date-nav-container{
+    margin-top: 1rem;
+}
+
+.country-info-header{
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.table-container{
+    margin-top: 1rem;
+    width: 50%;
+}
+
+.year-pick-item{
+    cursor: pointer;
+}

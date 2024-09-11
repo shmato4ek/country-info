@@ -7,6 +7,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { BootrstrapModule } from '../bootstrap/bootstrap.module';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CountryInfoComponent } from './country-info/country-info.component';
 
 
 
@@ -15,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     HomeComponent,
     BaseComponent,
+    CountryInfoComponent
   ],
   imports: [
     CommonModule,

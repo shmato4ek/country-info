@@ -7,6 +7,7 @@ import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../../environments/envionment';
 import { HolidayWidgetInfo } from '../../../models/holiday-widget-info';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,9 @@ export class HomeComponent{
 
   randomCountriesWidget = [] as HolidayWidgetInfo[];
 
-  constructor(private countryInfoService: CountryInfoService) {
+  constructor(private countryInfoService: CountryInfoService,
+              private router: Router
+  ) {
     this.countryInfoService.getAllCountries()
       .subscribe(resp => {
         this.allCountries = resp;
@@ -58,7 +61,9 @@ export class HomeComponent{
     }
 
     return selectedCountries;
+  }
 
-    return selectedCountries;
+  navigateToCountryInfo(countryCode: string) {
+    this.router.navigate([`countries/${countryCode}`]);
   }
 }

@@ -3,6 +3,7 @@ import { BaseComponent } from "./base/base.component";
 import { HomeComponent } from "./home/home.component";
 import { HeaderComponent } from "./header/header.component";
 import { NgModule } from "@angular/core";
+import { CountryInfoComponent } from "./country-info/country-info.component";
 
 const routes: Routes = [
     {
@@ -11,12 +12,12 @@ const routes: Routes = [
         children: [
             {
                 path: '',
-                component: HeaderComponent
-            },
-            {
-                path: '',
                 component: HomeComponent
             },
+            {
+                path: ':countryCode',
+                component: CountryInfoComponent
+            }
         ]
     }
 ]

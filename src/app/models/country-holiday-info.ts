@@ -3,4 +3,5 @@ export interface CountryHolidayInfo {
     localName: string,
     name: string,
     countryCode: string,
+    types: string[]
 }
