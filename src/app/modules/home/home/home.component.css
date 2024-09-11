@@ -12,6 +12,7 @@
     flex-direction: column;
     align-items: center;
     width: 65%;
+    margin-top: 5rem;
 }
 
 .country-widget-container{
@@ -21,6 +22,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: start;
+    margin-top: 5rem;
 }
 
 .country-input-container{
@@ -33,7 +35,7 @@
 }
 
 .table-container{
-    height: 40rem;
+    height: 35rem;
     overflow-y: scroll;
 }
 
