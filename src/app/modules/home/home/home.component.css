@@ -1,0 +1,15 @@
+.country-page-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.country-input-container{
+    width: 30rem;
+    margin-bottom: 2rem;
+}
+
+.countries-table{
+    width: 30rem;
+}
