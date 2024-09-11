@@ -1,18 +1,34 @@
 <div class="country-page-container">
-    <div class="country-input-container">
-        <input
-            [formControl]="filter"
-            type="text"
-            class="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default">
+    <div class="country-search-container">
+        <div class="country-input-container">
+            <input
+                [formControl]="filter"
+                type="text"
+                class="form-control"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default">
+        </div>
+        
+        <div class="table-container">
+            <table class="table table-hover countries-table">
+                <tbody>
+                <tr *ngFor="let country of filteredCountries$ | async">
+                    <td>{{country.name}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <table class="table table-hover countries-table">
-        <tbody>
-          <tr *ngFor="let country of filteredCountries$ | async">
-            <td>{{country.name}}</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="country-widget-container">
+        <p class="widget-header">Next holidays</p>
+        <div *ngFor="let widget of randomCountriesWidget" class="card widget-card">
+            <div class="card-body">
+              <h5 class="card-title">{{widget.countryName}}</h5>
+              <p class="card-text widget-text">{{widget.holidayName}}</p>
+              <p class="card-text widget-holiday-date">{{widget.date}}</p>
+            </div>
+          </div>
+    </div>
+    
 </div>
