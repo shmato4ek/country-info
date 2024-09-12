@@ -24,7 +24,7 @@
 
   <div class="country-widget-container">
     <p class="widget-header">Next holidays</p>
-    <div *ngFor="let widget of randomCountriesWidget" class="card widget-card">
+    <div *ngFor="let widget of randomCountriesWidget" class="card widget-card" (click)="navigateToCountryInfo(widget.countryCode)">
       <div class="card-body">
         <h5 class="card-title">{{ widget.countryName }}</h5>
         <p class="card-text widget-text">{{ widget.holidayName }}</p>

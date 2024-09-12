@@ -58,6 +58,7 @@ export class HomeComponent {
             countryName: randomCountry.name,
             holidayName: resp?.name,
             date: resp?.date,
+            countryCode: resp?.countryCode
           };
 
           selectedCountries.push(holidayWidgetInfo);
@@ -67,14 +68,14 @@ export class HomeComponent {
     return selectedCountries;
   }
 
-  navigateToCountryInfo(countryCode: string) {
+  navigateToCountryInfo(countryCode?: string) {
     this.router.navigate([`countries/${countryCode}`]);
   }
 
   private initCountrySearch(countries: Country[]) {
     this.allCountries$ = of(countries);
     this.filter$ = this.filter.valueChanges.pipe(startWith(''));
-    
+
     this.filteredCountries$ = combineLatest([
       this.allCountries$,
       this.filter$,
