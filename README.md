@@ -18,7 +18,7 @@ This project consists of a standalone `AppComponent` and a `HomeModule` that con
 - ```http://localhost:4200/countries``` - main page
 - ```http://localhost:4200/countries/:countryCode``` - country info page, where `countryCode` is a code of selected country
 
-### Sturtup
+### Startup
 First of all, you need to add an `.env` file to the project root folder with the following content (the default values are shown below):
 ```
   API_URL=https://date.nager.at/api/v3
