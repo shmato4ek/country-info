@@ -1,27 +1,56 @@
-# CountryInfo
+## CountryInfo
+CountryInfo is a website where you can find out the information about countries' and their holidays
+### Technologies and tools
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.3.
+This project was created using the following technologies:
+- `Angular (v. 18.2)`
+- `Node (v. 20.16)`
+- `TypeScript (v. 5.5)`
 
-## Development server
+### Features and architecture
+This project consists of a standalone `AppComponent` and a `HomeModule` that contains the following three components:
+- `BaseComponent` - a basic component that contains a `HeaderComponent` and children `HomeComponent` and `CountryInfoComponent` with the routing configured for them
+- `HeaderComponent` - contains the website logo and its name. When you click on the site name and logo fields, you are redirected to the home page of the site.
+- `HomeComponent` - contains a table with a list of all available countries and a search field for dynamic table filtering. It also contains widgets that display information about the nearest holiday of random three countries.
+- `CountryInfoComponent` - contains a list of all holidays of the selected year (by default, the current year) and a navigation bar for selecting the year of viewing the holiday
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Routing
+- ```http://localhost:4200/countries``` - main page
+- ```http://localhost:4200/countries/:countryCode``` - country info page, where `countryCode` is a code of selected country
 
-## Code scaffolding
+### Sturtup
+First of all, you need to add an `.env` file to the project root folder with the following content (the default values are shown below):
+```
+  API_URL=https://date.nager.at/api/v3
+  NUMBER_OF_COUNTRIES_ON_WIDGET=3
+  PAGINATION_START_YEAR=2020
+  PAGINATION_END_YEAR=2030
+  DEFAULT_COUNTRY_HOLIDAYS_YEAR=2024
+```
+Next, if you use Google Chrome to run the project, you need to install the [FlagEmoji extension](https://chromewebstore.google.com/detail/flagmoji/bnnhpohpnamnjhajbkgpmblleljodlhd?pli=1). This is necessary for flag emojis to be displayed correctly on project pages.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To run the project, you need to have `NodeJS`, `npm` and `AngularCLI` installed. Then you need to run the following commands in your terminal (in project root directory):
 
-## Build
+```
+npm i
+ng serve
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+After launching the project, go to the main page of the site here:
 
-## Running unit tests
+```
+http://localhost:4200/countries
+```
+To start ESLint, run the following command:
+```
+ng lint
+```
+To start Prettier, run the following command:
+```
+prettier . --write
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Preview
+![main page](/preview-images/main-page.png)
+![main page search](/preview-images/main-page-search.png)
+![country info page](/preview-images/country-info-page.png)
