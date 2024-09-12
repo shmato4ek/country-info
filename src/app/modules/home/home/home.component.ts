@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
   allCountries = [] as Country[];
+
   allCountries$ = {} as Observable<Country[]>;
   filteredCountries$ = {} as Observable<Country[]>;
   filter = {} as FormControl;
@@ -37,6 +38,7 @@ export class HomeComponent {
 
       this.randomCountriesWidget = this.selectRandomCountries();
     });
+
     this.numberOfCountries = Number(
       process.env['NUMBER_OF_COUNTRIES_ON_WIDGET']
     );
@@ -72,6 +74,7 @@ export class HomeComponent {
   private initCountrySearch(countries: Country[]) {
     this.allCountries$ = of(countries);
     this.filter$ = this.filter.valueChanges.pipe(startWith(''));
+    
     this.filteredCountries$ = combineLatest([
       this.allCountries$,
       this.filter$,

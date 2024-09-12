@@ -15,8 +15,8 @@ export class CountryInfoComponent {
   countryHolidays = [] as CountryHolidayInfo[];
   currentYear: number;
 
-  startYear = Number(process.env['PAGINATION_START_YEAR']) || 2020;
-  endYear = Number(process.env['PAGINATION_END_YEAR']) || 2030;
+  startYear = Number(process.env['PAGINATION_START_YEAR']);
+  endYear = Number(process.env['PAGINATION_END_YEAR']);
 
   constructor(
     private activateRoute: ActivatedRoute,
