@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CountryInfo } from '../../../models/country-info';
 import { CountryInfoService } from '../../../services/country-info.service';
 import { CountryHolidayInfo } from '../../../models/country-holiday-info';
+import { FlagConverterHelper } from '../../../helpers/flag-converter.helper';
 
 @Component({
   selector: 'app-country-info',
@@ -20,7 +21,8 @@ export class CountryInfoComponent {
 
   constructor(
     private activateRoute: ActivatedRoute,
-    private countryInfoService: CountryInfoService
+    private countryInfoService: CountryInfoService,
+    private flagConverterHelper: FlagConverterHelper
   ) {
     for (let year = this.startYear; year <= this.endYear; year++) {
       this.allYears.push(year);
@@ -47,6 +49,10 @@ export class CountryInfoComponent {
       this.currentCountry.countryCode,
       this.currentYear
     );
+  }
+
+  countryCodeToFlag(countryCode: string) {
+    return this.flagConverterHelper.countryCodeToFlag(countryCode);
   }
 
   moveToNextYear() {

@@ -7,6 +7,7 @@ import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HolidayWidgetInfo } from '../../../models/holiday-widget-info';
 import { Router } from '@angular/router';
+import { FlagConverterHelper } from '../../../helpers/flag-converter.helper';
 
 @Component({
   selector: 'app-home',
@@ -21,13 +22,16 @@ export class HomeComponent {
   filter = {} as FormControl;
   filter$ = {} as Observable<string>;
 
+  test = '\uD83D\uDE42';
+
   numberOfCountries: number;
 
   randomCountriesWidget = [] as HolidayWidgetInfo[];
 
   constructor(
     private countryInfoService: CountryInfoService,
-    private router: Router
+    private router: Router,
+    private flagConverterHelper: FlagConverterHelper
   ) {
     this.filter = new FormControl('');
 
@@ -66,6 +70,10 @@ export class HomeComponent {
     }
 
     return selectedCountries;
+  }
+
+  countryCodeToFlag(countryCode: string) {
+    return this.flagConverterHelper.countryCodeToFlag(countryCode);
   }
 
   navigateToCountryInfo(countryCode?: string) {

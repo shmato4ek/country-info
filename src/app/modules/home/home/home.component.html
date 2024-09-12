@@ -15,7 +15,7 @@
           <tr
             *ngFor="let country of filteredCountries$ | async"
             (click)="navigateToCountryInfo(country.countryCode)">
-            <td>{{ country.name }}</td>
+            <td>{{countryCodeToFlag(country.countryCode)}} {{ country.name }}</td>
           </tr>
         </tbody>
       </table>
@@ -26,7 +26,7 @@
     <p class="widget-header">Next holidays</p>
     <div *ngFor="let widget of randomCountriesWidget" class="card widget-card" (click)="navigateToCountryInfo(widget.countryCode)">
       <div class="card-body">
-        <h5 class="card-title">{{ widget.countryName }}</h5>
+        <h5 class="card-title">{{countryCodeToFlag(widget.countryCode || '')}} {{ widget.countryName }}</h5>
         <p class="card-text widget-text">{{ widget.holidayName }}</p>
         <p class="card-text widget-holiday-date">{{ widget.date }}</p>
       </div>

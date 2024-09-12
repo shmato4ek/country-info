@@ -1,6 +1,6 @@
 <div class="country-info-page-container">
   <p class="country-info-header">
-    {{ currentCountry.commonName }} ({{ currentCountry.region }})
+    {{countryCodeToFlag(currentCountry.countryCode)}} {{ currentCountry.commonName }} ({{ currentCountry.region }})
   </p>
 
   <nav class="date-nav-container">
