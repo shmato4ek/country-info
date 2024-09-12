@@ -1,7 +1,7 @@
 export interface CountryHolidayInfo {
-    date: Date,
-    localName: string,
-    name: string,
-    countryCode: string,
-    types: string[]
+  date: Date;
+  localName: string;
+  name: string;
+  countryCode: string;
+  types: string[];
 }

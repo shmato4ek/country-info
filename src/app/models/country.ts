@@ -1,4 +1,4 @@
 export interface Country {
-    countryCode: string,
-    name: string
+  countryCode: string;
+  name: string;
 }

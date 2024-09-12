@@ -5,25 +5,22 @@ import { HomeComponent } from './home/home.component';
 import { BaseComponent } from './base/base.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { BootrstrapModule } from '../bootstrap/bootstrap.module';
-import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CountryInfoComponent } from './country-info/country-info.component';
-
-
 
 @NgModule({
   declarations: [
     HeaderComponent,
     HomeComponent,
     BaseComponent,
-    CountryInfoComponent
+    CountryInfoComponent,
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     BootrstrapModule,
     FormsModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+  ],
 })
-export class HomeModule { }
+export class HomeModule {}

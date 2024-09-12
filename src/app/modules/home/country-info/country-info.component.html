@@ -1,47 +1,50 @@
 <div class="country-info-page-container">
-    <p class="country-info-header">{{currentCountry.commonName}} ({{currentCountry.region}})</p>
+  <p class="country-info-header">
+    {{ currentCountry.commonName }} ({{ currentCountry.region }})
+  </p>
 
-    <nav class="date-nav-container">
-        <ul class="pagination">
-        <li class="page-item">
-            <a class="page-link year-pick-item" (click)="moveToPreviousYear()">
-            <span aria-hidden="true">&laquo;</span>
-            </a>
-        </li>
-        <li
-            *ngFor="let year of allYears"
-            class="page-item year-pick-item"
-            [ngClass]="isYearCurrent(year) ? 'active' : ''">
-            <a
-                class="page-link"
-                (click)="changeCurrentYear(year)">
-                    {{year}}
-            </a>
-        </li>
-        <li class="page-item">
-            <a class="page-link year-pick-item" aria-label="Next" (click)="moveToNextYear()">
-            <span aria-hidden="true">&raquo;</span>
-            </a>
-        </li>
-        </ul>
-    </nav>
+  <nav class="date-nav-container">
+    <ul class="pagination">
+      <li class="page-item">
+        <button class="page-link year-pick-item" (click)="moveToPreviousYear()">
+          <span aria-hidden="true">&laquo;</span>
+        </button>
+      </li>
+      <li
+        *ngFor="let year of allYears"
+        class="page-item year-pick-item"
+        [ngClass]="isYearCurrent(year) ? 'active' : ''">
+        <button class="page-link" (click)="changeCurrentYear(year)">
+          {{ year }}
+        </button>
+      </li>
+      <li class="page-item">
+        <button
+          class="page-link year-pick-item"
+          aria-label="Next"
+          (click)="moveToNextYear()">
+          <span aria-hidden="true">&raquo;</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
 
-    <div class="table-container">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">Date</th>
-                  <th scope="col">Type</th>
-                </tr>
-              </thead>
-            <tbody>
-            <tr *ngFor="let country of countryHolidays">
-                <td>{{country.name}}</td>
-                <td>{{country.date}}</td>
-                <td>{{country.types[0]}}</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+  <div class="table-container">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Date</th>
+          <th scope="col">Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let country of countryHolidays">
+          <td>{{ country.name }}</td>
+          <td>{{ country.date }}</td>
+          <td>{{ country.types[0] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
