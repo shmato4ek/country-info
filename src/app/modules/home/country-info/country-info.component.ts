@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { environment } from '../../../../environments/envionment';
 import { ActivatedRoute } from '@angular/router';
 import { CountryInfo } from '../../../models/country-info';
 import { CountryInfoService } from '../../../services/country-info.service';
@@ -16,15 +15,14 @@ export class CountryInfoComponent {
   countryHolidays = [] as CountryHolidayInfo[];
   currentYear: number;
 
+  startYear = Number(process.env['PAGINATION_START_YEAR']) || 2020;
+  endYear = Number(process.env['PAGINATION_END_YEAR']) || 2030;
+
   constructor(
     private activateRoute: ActivatedRoute,
     private countryInfoService: CountryInfoService
   ) {
-    for (
-      let year = environment.PAGINATION_START_YEAR;
-      year <= environment.PAGINATION_END_YEAR;
-      year++
-    ) {
+    for (let year = this.startYear; year <= this.endYear; year++) {
       this.allYears.push(year);
     }
 
@@ -32,14 +30,14 @@ export class CountryInfoComponent {
 
     this.countryInfoService.getCountryInfo(countryCode).subscribe(resp => {
       this.currentCountry = resp;
+
+      this.setCountryHolidaysByYear(
+        this.currentCountry.countryCode,
+        this.currentYear
+      );
     });
 
-    this.currentYear = environment.DEFAULT_COUNTRY_HOLIDAYS_YEAR;
-
-    this.setCountryHolidaysByYear(
-      this.currentCountry.countryCode,
-      this.currentYear
-    );
+    this.currentYear = Number([process.env['DEFAULT_COUNTRY_HOLIDAYS_YEAR']]);
   }
 
   changeCurrentYear(year: number) {
@@ -52,13 +50,13 @@ export class CountryInfoComponent {
   }
 
   moveToNextYear() {
-    if (this.currentYear != environment.PAGINATION_END_YEAR) {
+    if (this.currentYear != this.endYear) {
       this.changeCurrentYear(this.currentYear + 1);
     }
   }
 
   moveToPreviousYear() {
-    if (this.currentYear != environment.PAGINATION_START_YEAR) {
+    if (this.currentYear != this.startYear) {
       this.changeCurrentYear(this.currentYear - 1);
     }
   }

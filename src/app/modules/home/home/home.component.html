@@ -9,7 +9,7 @@
         aria-describedby="inputGroup-sizing-default" />
     </div>
 
-    <div class="table-container">
+    <div class="table-container" *ngIf="allCountries.length > 0">
       <table class="table table-hover countries-table">
         <tbody>
           <tr

@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/envionment';
 import {
   HttpClient,
-  HttpErrorResponse,
   HttpParams,
   HttpResponse,
 } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ResourceService {
-  private readonly apiUrl = environment.API_URL;
+  private readonly apiUrl;
 
-  constructor(protected httpClient: HttpClient) {}
+  constructor(protected httpClient: HttpClient) {
+    this.apiUrl = process.env['API_URL'];
+  }
 
   public getFullRequest<TRequest>(
     url: string,
@@ -24,9 +24,5 @@ export class ResourceService {
       observe: 'response',
       params: httpParams,
     });
-  }
-
-  private handleError(error: HttpErrorResponse) {
-    return throwError(() => error);
   }
 }
